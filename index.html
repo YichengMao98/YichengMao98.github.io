@@ -352,22 +352,22 @@
 
   /* P.S. block — personal note with Benben */
   .ps-block {
-    margin-top: 44px;
-    padding-top: 32px;
+    margin-top: 56px;
+    padding-top: 40px;
     border-top: 1px dashed var(--line);
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 36px;
   }
   .ps-photo {
     flex-shrink: 0;
-    width: 88px;
-    height: 110px;
+    width: 140px;
+    height: 175px;
     background: #fff;
-    padding: 6px 6px 18px;
+    padding: 8px 8px 26px;
     box-shadow:
-      0 4px 14px rgba(26, 22, 18, 0.14),
-      0 1px 3px rgba(26, 22, 18, 0.08);
+      0 6px 20px rgba(26, 22, 18, 0.16),
+      0 2px 4px rgba(26, 22, 18, 0.1);
     transform: rotate(-3deg);
     transition: transform 0.5s ease;
   }
@@ -382,19 +382,19 @@
     font-family: 'Fraunces', serif;
     font-style: italic;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 19px;
     color: var(--ink-soft);
     line-height: 1.5;
   }
   .ps-label {
     font-family: 'JetBrains Mono', monospace;
     font-style: normal;
-    font-size: 11px;
+    font-size: 12px;
     color: var(--rust);
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-right: 12px;
-    vertical-align: 1px;
+    margin-right: 14px;
+    vertical-align: 2px;
   }
 
   /* Education / Positions table */
@@ -403,7 +403,7 @@
     display: grid;
     grid-template-columns: 110px 1fr;
     gap: 24px;
-    padding: 18px 0;
+    padding: 28px 0;
     border-top: 1px solid var(--line);
   }
   .timeline-row:last-child { border-bottom: 1px solid var(--line); }
@@ -412,19 +412,22 @@
     font-size: 12px;
     color: var(--ink-faded);
     letter-spacing: 0.05em;
-    padding-top: 4px;
+    padding-top: 6px;
   }
   .timeline-title {
     font-family: 'Fraunces', serif;
     font-weight: 500;
     font-size: 19px;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     color: var(--ink);
   }
   .timeline-meta {
     color: var(--ink-soft);
     font-size: 15px;
     line-height: 1.55;
+  }
+  .timeline-meta + .timeline-meta {
+    margin-top: 3px;
   }
   .timeline-meta em {
     font-family: 'Fraunces', serif;
@@ -575,9 +578,8 @@
         <div class="quick-links">
           <a href="mailto:yicheng.mao1@ucalgary.ca">Email</a>
           <a href="CV.pdf" target="_blank" rel="noopener">CV</a>
-          <a href="https://scholar.google.com/" target="_blank" rel="noopener">Scholar</a>
-          <a href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
-          <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=7oh32xoAAAAJ&hl" target="_blank" rel="noopener">Scholar</a>
+          <a href="https://github.com/YichengMao98" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
       <div class="hero-photo">
@@ -644,8 +646,8 @@
               <div class="theme-keywords">
                 <span>Optimal design</span>
                 <span>Discrete choice experiments</span>
-                <span>Simulated annealing</span>
-                <span>Bayesian methods</span>
+                <span>Mixture experiment</span>
+                <span>Partial profile design</span>
               </div>
             </div>
           </div>
@@ -698,42 +700,53 @@
             <div class="timeline-date">2026 → 2028</div>
             <div>
               <div class="timeline-title">PIMS Postdoctoral Fellow</div>
-              <div class="timeline-meta">University of Calgary &middot; <em>incoming</em><br>Supervisor: Prof. Rob Deardon</div>
+              <div class="timeline-meta">University of Calgary <em>(incoming)</em></div>
+              <div class="timeline-meta">Supervisor: Prof. Rob Deardon</div>
             </div>
           </div>
           <div class="timeline-row">
             <div class="timeline-date">2025 → now</div>
             <div>
               <div class="timeline-title">Visiting Researcher</div>
-              <div class="timeline-meta">University of Calgary<br>Population memory mechanisms in behavioural change epidemic models. Supervisors: Prof. Rob Deardon, Prof. Lorna Deeth.</div>
+              <div class="timeline-meta">Department of Mathematics and Statistics, University of Calgary</div>
+              <div class="timeline-meta">Project: population memory mechanisms in behavioural change epidemic models</div>
+              <div class="timeline-meta">Supervisors: Prof. Rob Deardon, Prof. Lorna Deeth</div>
             </div>
           </div>
           <div class="timeline-row">
             <div class="timeline-date">2023 → 2025</div>
             <div>
               <div class="timeline-title">PhD in Statistics</div>
-              <div class="timeline-meta">Maastricht University, School of Business and Economics<br>Thesis: <em>Bayesian Optimal Choice Designs Using Simulated Annealing</em>. Supervisor: Prof. Roselinde Kessels.</div>
+              <div class="timeline-meta">School of Business and Economics, Maastricht University</div>
+              <div class="timeline-meta">Thesis: <em>Bayesian optimal choice designs using simulated annealing</em></div>
+              <div class="timeline-meta">Supervisor: Prof. Roselinde Kessels</div>
             </div>
           </div>
           <div class="timeline-row">
             <div class="timeline-date">2022 → 2023</div>
             <div>
               <div class="timeline-title">Research Intern</div>
-              <div class="timeline-meta">King Abdullah University of Science and Technology<br>Stability analysis of gradient-based methods for compositional optimization. Supervisor: Prof. Di Wang.</div>
+              <div class="timeline-meta">King Abdullah University of Science and Technology</div>
+              <div class="timeline-meta">Project: stability analysis of gradient-based methods for compositional optimization</div>
+              <div class="timeline-meta">Supervisor: Prof. Di Wang</div>
             </div>
           </div>
           <div class="timeline-row">
             <div class="timeline-date">2021 → 2023</div>
             <div>
               <div class="timeline-title">MSc in Statistics and Data Sciences</div>
-              <div class="timeline-meta">KU Leuven, Faculty of Science<br>Thesis: <em>Color Preference of Fruit Flies: A Choice Experiment Approach</em>. Supervisors: Prof. Peter Goos, Dr. Bart De Ketelaere.</div>
+              <div class="timeline-meta">Faculty of Science, KU Leuven</div>
+              <div class="timeline-meta">Thesis: <em>Color preference of fruit flies: a choice experiment approach</em></div>
+              <div class="timeline-meta">Supervisors: Prof. Peter Goos, Dr. Bart De Ketelaere</div>
             </div>
           </div>
           <div class="timeline-row">
             <div class="timeline-date">2017 → 2021</div>
             <div>
               <div class="timeline-title">BSc in Accounting</div>
-              <div class="timeline-meta">Beijing Normal University, Business School<br>Thesis on the impact of cognition on learning from failure. Supervisor: Prof. Wenzhou Wang.</div>
+              <div class="timeline-meta">Business School, Beijing Normal University</div>
+              <div class="timeline-meta">Thesis: <em>The impact of cognition on learning from failure: a grounded theory approach</em></div>
+              <div class="timeline-meta">Supervisor: Prof. Wenzhou Wang</div>
             </div>
           </div>
         </div>
@@ -751,7 +764,7 @@
     <div class="section-body">
       <aside class="section-aside">
         Papers<br>
-        Published &middot; In review
+        Published &middot; Submitted
       </aside>
       <div class="section-content">
 
@@ -780,52 +793,52 @@
         </div>
 
         <div class="pub-group">
-          <h3>Under review</h3>
+          <h3>Submitted</h3>
           <ol class="pubs">
             <li>
               <span class="authors"><span class="me">Y. Mao</span>, R. Deardon, L. Deeth.</span>
               <span class="pub-title">Identifying memory mechanisms in Bayesian models of behavioural change during epidemics.</span>
-              <span class="venue">Epidemics</span> <span class="status">R&amp;R</span>
+              <span class="venue">Epidemics</span> <span class="status">Submitted</span>
             </li>
             <li>
               <span class="authors"><span class="me">Y. Mao</span>, R. Deardon, L. Deeth.</span>
               <span class="pub-title">Integrating memory mechanisms for behavioural change in individual-level spatial epidemic models.</span>
-              <span class="venue">Infectious Disease Modelling</span> <span class="status">R&amp;R</span>
+              <span class="venue">Infectious Disease Modelling</span> <span class="status">Submitted</span>
             </li>
             <li>
               <span class="authors"><span class="me">Y. Mao</span>, B. Lopman, K. Koelle, M. S. Y. Lau.</span>
               <span class="pub-title">Subtype dynamics reveal horizon-dependent structure in influenza predictability.</span>
-              <span class="venue">Proceedings of the National Academy of Sciences</span> <span class="status">submitted</span>
+              <span class="venue">Proceedings of the National Academy of Sciences</span> <span class="status">Submitted</span>
             </li>
             <li>
               <span class="authors"><span class="me">Y. Mao</span>, R. Kessels.</span>
               <span class="pub-title">Simulated annealing for model-robust partial profile choice designs with simultaneous optimization.</span>
-              <span class="venue">Statistics in Medicine</span> <span class="status">under review</span>
+              <span class="venue">Statistics in Medicine</span> <span class="status">Submitted</span>
             </li>
             <li>
               <span class="authors"><span class="me">Y. Mao</span>, B. Li, M. Gan, J. Qian.</span>
               <span class="pub-title">Between the lines: understanding employee preferences for AI usage guidelines through discrete choice experiments.</span>
-              <span class="venue">International Journal of Human–Computer Interaction</span> <span class="status">R&amp;R</span>
+              <span class="venue">International Journal of Human–Computer Interaction</span> <span class="status">Submitted</span>
             </li>
             <li>
               <span class="authors"><span class="me">Y. Mao</span>, B. Li.</span>
               <span class="pub-title">Choosing the future of learning: assessing preferences for educational GPTs through a discrete choice experiment.</span>
-              <span class="venue">Computers &amp; Education: Artificial Intelligence</span> <span class="status">under review</span>
+              <span class="venue">Computers &amp; Education: Artificial Intelligence</span> <span class="status">Submitted</span>
             </li>
             <li>
               <span class="authors"><span class="me">Y. Mao</span>, B. Li, S. Chen, M. Gan, J. Qian.</span>
               <span class="pub-title">Let's chat about chatbots: exploring user preferences for e-commerce customer service chatbots through a discrete choice experiment.</span>
-              <span class="venue">Behavior &amp; Information Technology</span> <span class="status">under review</span>
+              <span class="venue">Behavior &amp; Information Technology</span> <span class="status">Submitted</span>
             </li>
             <li>
               <span class="authors">B. Li, <span class="me">Y. Mao</span>, Y. Zhang, W. Niu, J. Qian.</span>
               <span class="pub-title">Coding their choices: assessing student preferences for statistical software through a discrete choice experiment.</span>
-              <span class="venue">Journal of Computing in Higher Education</span> <span class="status">under review</span>
+              <span class="venue">Journal of Computing in Higher Education</span> <span class="status">Submitted</span>
             </li>
             <li>
               <span class="authors">B. Li, <span class="me">Y. Mao</span>, W. Niu, J. Qian.</span>
               <span class="pub-title">What drives employees' choices in AI training: modeling employees' preferences for AI training via a discrete choice experiment.</span>
-              <span class="venue">Human Resource Development Quarterly</span> <span class="status">under review</span>
+              <span class="venue">Human Resource Development Quarterly</span> <span class="status">Submitted</span>
             </li>
           </ol>
         </div>

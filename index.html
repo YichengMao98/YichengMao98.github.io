@@ -74,7 +74,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -91,7 +90,6 @@
     min-height: 100vh;
   }
 
-  /* Subtle paper grain */
   body::before {
     content: "";
     position: fixed;
@@ -108,12 +106,8 @@
     border-bottom: 1px solid rgba(161, 75, 58, 0.3);
     transition: all 0.2s ease;
   }
-  a:hover {
-    color: var(--rust);
-    border-bottom-color: var(--rust);
-  }
+  a:hover { color: var(--rust); border-bottom-color: var(--rust); }
 
-  /* Layout */
   .container {
     max-width: 920px;
     margin: 0 auto;
@@ -122,208 +116,151 @@
     z-index: 2;
   }
 
-  /* Top navigation */
-  nav.top {
-    position: sticky;
-    top: 0;
-    background: rgba(245, 241, 232, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-    z-index: 100;
-    padding: 16px 0;
+  /* ===== Masthead ===== */
+  header.masthead {
+    padding: 56px 0 0;
   }
-  nav.top .container {
+  .masthead-top {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    gap: 24px;
+    align-items: flex-start;
+    gap: 32px;
     flex-wrap: wrap;
+    margin-bottom: 36px;
   }
-  nav.top .name {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 18px;
-    letter-spacing: -0.01em;
-  }
-  nav.top ul {
-    list-style: none;
-    display: flex;
-    gap: 28px;
-    flex-wrap: wrap;
-  }
-  nav.top ul a {
-    color: var(--ink-soft);
-    border-bottom: none;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-  nav.top ul a:hover { color: var(--rust); }
-
-  /* Hero */
-  header.hero {
-    padding: 120px 0 80px;
-    border-bottom: 1px solid var(--line);
-  }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    gap: 56px;
-    align-items: center;
-  }
-  .hero-text { min-width: 0; }
-  .hero h1 {
+  .masthead h1 {
     font-family: 'Fraunces', serif;
     font-variation-settings: 'opsz' 144, 'SOFT' 50, 'WONK' 1;
     font-weight: 400;
-    font-size: clamp(56px, 9vw, 104px);
+    font-size: clamp(44px, 7vw, 76px);
     line-height: 0.95;
     letter-spacing: -0.035em;
     color: var(--ink);
-    margin-bottom: 32px;
+    margin-bottom: 14px;
   }
-  .hero h1 .accent {
+  .masthead h1 .accent {
     font-style: italic;
     color: var(--rust-dark);
     font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
   }
-  .hero .lede {
-    font-size: 18px;
-    line-height: 1.7;
-    max-width: 620px;
-    color: var(--ink-soft);
-    margin-bottom: 28px;
-  }
-  .hero .meta {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
+  .masthead .tagline {
     font-family: 'JetBrains Mono', monospace;
     font-size: 13px;
     color: var(--ink-faded);
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin-bottom: 28px;
   }
-  .hero .meta span::before {
-    content: "→ ";
-    color: var(--rust);
-  }
-  .hero .quick-links {
+  .masthead .tagline span::before { content: "→ "; color: var(--rust); }
+  .masthead .tagline span { margin-right: 20px; }
+
+  .quick-links {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
+    align-items: flex-start;
   }
-  .hero .quick-links a {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 8px 16px;
+  .quick-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
     background: var(--ink);
     color: var(--paper);
     border: 1px solid var(--ink);
     border-bottom: 1px solid var(--ink);
     transition: all 0.2s ease;
   }
-  .hero .quick-links a:hover {
+  .quick-links a:hover {
     background: var(--rust-dark);
     border-color: var(--rust-dark);
     color: var(--paper);
+    transform: translateY(-2px);
   }
-
-  /* Hero photo */
-  .hero-photo {
-    display: flex;
-    justify-content: center;
-  }
-  .photo-frame {
-    position: relative;
-    width: 360px;
-    height: 220px;
-    background: var(--paper-dim);
-    border: 1px solid var(--line);
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.6) inset,
-      0 8px 24px rgba(26, 22, 18, 0.08),
-      0 2px 6px rgba(26, 22, 18, 0.06);
-    transform: rotate(-1.5deg);
-    transition: transform 0.4s ease;
-    overflow: hidden;
-  }
-  .photo-frame:hover { transform: rotate(0deg) scale(1.02); }
-  .photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: saturate(0.95) contrast(1.02);
-  }
-  .photo-frame::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    box-shadow: inset 0 0 40px rgba(26, 22, 18, 0.06);
-    z-index: 2;
-  }
-  .photo-placeholder-text {
-    display: none;
-    position: absolute;
-    inset: 0;
-    align-items: center;
-    justify-content: center;
+  .quick-links svg { display: block; }
+  .quick-links a.ql-text {
+    width: auto;
+    padding: 0 14px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
-    color: var(--ink-faded);
-    letter-spacing: 0.1em;
     text-transform: uppercase;
-    background:
-      repeating-linear-gradient(
-        45deg,
-        var(--paper-dim),
-        var(--paper-dim) 8px,
-        rgba(216, 208, 192, 0.5) 8px,
-        rgba(216, 208, 192, 0.5) 16px
-      );
+    letter-spacing: 0.08em;
   }
-  .photo-frame.placeholder .photo-placeholder-text { display: flex; }
 
-  /* Section */
-  section {
-    padding: 80px 0;
-    border-bottom: 1px solid var(--line);
+  /* ===== Tab navigation ===== */
+  .tab-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    background: rgba(245, 241, 232, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
-  section:last-of-type { border-bottom: none; }
+  .tab-btn {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: var(--ink-soft);
+    background: transparent;
+    border: none;
+    border-right: 1px solid var(--line);
+    padding: 18px 28px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+  .tab-btn:last-child { border-right: none; }
+  .tab-btn:hover { background: var(--paper-dim); color: var(--ink); }
+  .tab-btn.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .tab-btn.active::after {
+    content: "";
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 2px;
+    background: var(--rust);
+  }
 
-  .section-header {
+  /* ===== Tab panels ===== */
+  .tab-panel { display: none; padding: 64px 0 100px; }
+  .tab-panel.active { display: block; animation: fadeIn 0.4s ease-out; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .panel-head {
     display: grid;
     grid-template-columns: 200px 1fr;
     gap: 48px;
-    margin-bottom: 48px;
+    margin-bottom: 44px;
     align-items: baseline;
   }
-  .section-num {
+  .panel-kicker {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
+    font-size: 12px;
     color: var(--rust);
     letter-spacing: 0.15em;
+    text-transform: uppercase;
   }
-  .section-title {
+  .panel-title {
     font-family: 'Fraunces', serif;
     font-variation-settings: 'opsz' 60, 'SOFT' 30;
     font-weight: 400;
-    font-size: clamp(32px, 4vw, 44px);
+    font-size: clamp(32px, 4vw, 46px);
     letter-spacing: -0.02em;
     line-height: 1.1;
   }
-  .section-body {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 48px;
-  }
-  .section-aside {
+  .panel-body { display: grid; grid-template-columns: 200px 1fr; gap: 48px; }
+  .panel-aside {
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
     color: var(--ink-faded);
@@ -331,36 +268,55 @@
     letter-spacing: 0.12em;
     line-height: 1.8;
   }
-  .section-content { max-width: 720px; }
-  .section-content p { margin-bottom: 18px; }
-  .section-content p:last-child { margin-bottom: 0; }
+  .panel-content { max-width: 720px; }
+  .panel-content > p { margin-bottom: 18px; }
+  .panel-content > p:last-child { margin-bottom: 0; }
 
-  /* Research themes */
+  /* ===== About: photo + intro ===== */
+  .about-hero {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 48px;
+    align-items: start;
+    margin-bottom: 44px;
+  }
+  .about-intro p { margin-bottom: 18px; }
+  .about-intro p:last-child { margin-bottom: 0; }
+  .photo-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    background: var(--paper-dim);
+    border: 1px solid var(--line);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.6) inset,
+      0 8px 24px rgba(26,22,18,0.08),
+      0 2px 6px rgba(26,22,18,0.06);
+    transform: rotate(-1.5deg);
+    transition: transform 0.4s ease;
+    overflow: hidden;
+  }
+  .photo-frame:hover { transform: rotate(0deg) scale(1.02); }
+  .photo-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    filter: saturate(0.95) contrast(1.02);
+  }
+
+  /* ===== Research themes ===== */
   .research-themes {
-    margin: 32px 0 36px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    margin: 8px 0 36px;
+    display: flex; flex-direction: column; gap: 24px;
   }
   .theme {
-    display: grid;
-    grid-template-columns: 56px 1fr;
-    gap: 20px;
     padding: 24px 24px 24px 22px;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255,255,255,0.4);
     border-left: 2px solid var(--rust);
     border-top: 1px solid var(--line);
     border-right: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
   }
-  .theme-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-    color: var(--rust);
-    letter-spacing: 0.1em;
-    padding-top: 4px;
-  }
-  .theme-body h4 {
+  .theme h4 {
     font-family: 'Fraunces', serif;
     font-weight: 500;
     font-size: 18px;
@@ -378,16 +334,8 @@
     color: var(--ink-soft);
     margin-bottom: 14px;
   }
-  .theme-body p {
-    font-size: 15.5px;
-    line-height: 1.6;
-    color: var(--ink-soft);
-    margin-bottom: 0;
-  }
   .theme-keywords {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
+    display: flex; flex-wrap: wrap; align-items: baseline;
     font-family: 'JetBrains Mono', monospace;
     font-size: 11.5px;
     color: var(--ink-soft);
@@ -395,61 +343,41 @@
     letter-spacing: 0.01em;
   }
   .theme-keywords span::after {
-    content: " · ";
-    color: var(--rust);
-    margin: 0 8px;
-    font-weight: 600;
+    content: " · "; color: var(--rust); margin: 0 8px; font-weight: 600;
   }
   .theme-keywords span:last-child::after { content: ""; }
 
-  /* P.S. block — personal note with Benben */
+  /* ===== P.S. block ===== */
   .ps-block {
-    margin-top: 56px;
+    margin-top: 12px;
     padding-top: 40px;
     border-top: 1px dashed var(--line);
-    display: flex;
-    align-items: center;
-    gap: 36px;
+    display: flex; align-items: center; gap: 36px;
   }
   .ps-photo {
     flex-shrink: 0;
-    width: 140px;
-    height: 175px;
+    width: 140px; height: 175px;
     background: #fff;
     padding: 8px 8px 26px;
-    box-shadow:
-      0 6px 20px rgba(26, 22, 18, 0.16),
-      0 2px 4px rgba(26, 22, 18, 0.1);
+    box-shadow: 0 6px 20px rgba(26,22,18,0.16), 0 2px 4px rgba(26,22,18,0.1);
     transform: rotate(-3deg);
     transition: transform 0.5s ease;
   }
   .ps-photo:hover { transform: rotate(0deg) scale(1.05); }
-  .ps-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+  .ps-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .ps-text {
     font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 19px;
-    color: var(--ink-soft);
-    line-height: 1.5;
+    font-style: italic; font-weight: 300;
+    font-size: 19px; color: var(--ink-soft); line-height: 1.5;
   }
   .ps-label {
     font-family: 'JetBrains Mono', monospace;
-    font-style: normal;
-    font-size: 12px;
-    color: var(--rust);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-right: 14px;
-    vertical-align: 2px;
+    font-style: normal; font-size: 12px;
+    color: var(--rust); letter-spacing: 0.12em;
+    text-transform: uppercase; margin-right: 14px; vertical-align: 2px;
   }
 
-  /* Education / Positions table */
+  /* ===== Timeline ===== */
   .timeline { display: flex; flex-direction: column; }
   .timeline-row {
     display: grid;
@@ -461,297 +389,302 @@
   .timeline-row:last-child { border-bottom: 1px solid var(--line); }
   .timeline-date {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--ink-faded);
-    letter-spacing: 0.05em;
-    padding-top: 6px;
+    font-size: 12px; color: var(--ink-faded);
+    letter-spacing: 0.05em; padding-top: 6px;
   }
   .timeline-title {
     font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 19px;
-    margin-bottom: 8px;
-    color: var(--ink);
+    font-weight: 500; font-size: 19px;
+    margin-bottom: 8px; color: var(--ink);
   }
-  .timeline-meta {
-    color: var(--ink-soft);
-    font-size: 15px;
-    line-height: 1.55;
-  }
-  .timeline-meta + .timeline-meta {
-    margin-top: 3px;
-  }
-  .timeline-meta em {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-  }
+  .timeline-meta { color: var(--ink-soft); font-size: 15px; line-height: 1.55; }
+  .timeline-meta + .timeline-meta { margin-top: 3px; }
+  .timeline-meta em { font-family: 'Fraunces', serif; font-style: italic; }
 
-  /* Publications */
+  /* ===== Publications ===== */
   .pub-group { margin-bottom: 56px; }
   .pub-group:last-child { margin-bottom: 0; }
   .pub-group h3 {
     font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 22px;
-    color: var(--rust-dark);
-    margin-bottom: 24px;
-    padding-bottom: 8px;
-    border-bottom: 1px dashed var(--line);
+    font-style: italic; font-weight: 400; font-size: 22px;
+    color: var(--rust-dark); margin-bottom: 24px;
+    padding-bottom: 8px; border-bottom: 1px dashed var(--line);
   }
-  ol.pubs {
-    list-style: none;
-    counter-reset: pubcounter;
-  }
+  ol.pubs { list-style: none; counter-reset: pubcounter; }
   ol.pubs li {
     counter-increment: pubcounter;
     padding: 18px 0 18px 48px;
     position: relative;
     border-top: 1px solid var(--line);
-    line-height: 1.6;
-    font-size: 15.5px;
+    line-height: 1.6; font-size: 15.5px;
   }
   ol.pubs li:last-child { border-bottom: 1px solid var(--line); }
   ol.pubs li::before {
     content: counter(pubcounter, decimal-leading-zero);
-    position: absolute;
-    left: 0;
-    top: 18px;
+    position: absolute; left: 0; top: 18px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--rust);
-    letter-spacing: 0.1em;
+    font-size: 11px; color: var(--rust); letter-spacing: 0.1em;
   }
-  ol.pubs .authors {
-    color: var(--ink-soft);
-  }
+  ol.pubs .authors { color: var(--ink-soft); }
   ol.pubs .me {
-    color: var(--ink);
-    font-weight: 600;
+    color: var(--ink); font-weight: 600;
     background: linear-gradient(transparent 70%, var(--highlight) 70%);
     padding: 0 1px;
   }
   ol.pubs .pub-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    color: var(--ink);
-    display: block;
-    margin: 4px 0;
+    font-family: 'Fraunces', serif; font-weight: 500;
+    color: var(--ink); display: block; margin: 4px 0;
   }
   ol.pubs .venue {
-    font-style: italic;
-    font-family: 'Fraunces', serif;
-    color: var(--ink-soft);
+    font-style: italic; font-family: 'Fraunces', serif; color: var(--ink-soft);
   }
   ol.pubs .status {
     display: inline-block;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--rust);
-    border: 1px solid var(--rust);
-    padding: 2px 8px;
-    margin-left: 6px;
-    vertical-align: middle;
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--rust); border: 1px solid var(--rust);
+    padding: 2px 8px; margin-left: 6px; vertical-align: middle;
   }
   ol.pubs .status.revision {
-    background: var(--rust);
-    color: var(--paper);
-    border-color: var(--rust);
+    background: var(--rust); color: var(--paper); border-color: var(--rust);
   }
 
-  /* Footer */
+  /* ===== Teaching ===== */
+  .teaching-intro { margin-bottom: 36px; }
+  .teaching-intro p { margin-bottom: 18px; }
+  .teaching-intro p:last-child { margin-bottom: 0; }
+
+  .games-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 28px 0 44px;
+  }
+  .game-card {
+    display: block;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--rust);
+    background: rgba(255,255,255,0.45);
+    padding: 22px 24px;
+    transition: all 0.25s ease;
+  }
+  .game-card:hover {
+    background: rgba(255,255,255,0.75);
+    transform: translateX(4px);
+    border-bottom-color: var(--line);
+  }
+  .game-card .game-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--rust);
+    margin-bottom: 8px; display: block;
+  }
+  .game-card .game-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600; font-size: 21px;
+    color: var(--ink); margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .game-card .game-desc {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: 15px; color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  .game-card .game-play {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--rust-dark);
+  }
+  .game-card .game-play::after { content: " ↗"; }
+
+  .teaching-block { margin-bottom: 32px; }
+  .teaching-block:last-child { margin-bottom: 0; }
+  .teaching-block h4 {
+    font-family: 'Fraunces', serif;
+    font-style: italic; font-weight: 400; font-size: 18px;
+    color: var(--rust-dark); margin-bottom: 12px;
+  }
+  .teaching-list { list-style: none; }
+  .teaching-list li {
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: 1fr auto; gap: 16px;
+    font-size: 15px;
+  }
+  .teaching-list li:last-child { border-bottom: 1px solid var(--line); }
+  .teaching-list .role-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--ink-faded);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    text-align: right;
+  }
+  .name-cluster {
+    display: flex; flex-wrap: wrap; gap: 6px 14px;
+    font-size: 15px; color: var(--ink-soft);
+  }
+  .name-cluster span::after { content: "·"; margin-left: 14px; color: var(--ink-faded); }
+  .name-cluster span:last-child::after { content: ""; }
+
+  /* ===== Footer ===== */
   footer {
-    padding: 40px 0 60px;
+    padding: 36px 0 56px;
     text-align: center;
     color: var(--ink-faded);
     font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.08em;
+    font-size: 12px; letter-spacing: 0.08em;
     border-top: 1px solid var(--line);
   }
   footer .ornament {
-    font-family: 'Fraunces', serif;
-    color: var(--rust);
-    font-size: 24px;
-    margin-bottom: 16px;
+    font-family: 'Fraunces', serif; color: var(--rust);
+    font-size: 24px; margin-bottom: 16px;
   }
 
-  /* Responsive */
+  /* ===== Responsive ===== */
   @media (max-width: 760px) {
-    .container { padding: 0 24px; }
-    header.hero { padding: 60px 0 50px; }
-    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
-    .hero-photo { order: -1; justify-content: flex-start; }
-    .photo-frame { width: 280px; height: 170px; }
-    section { padding: 50px 0; }
-    .section-header { grid-template-columns: 1fr; gap: 12px; margin-bottom: 32px; }
-    .section-body { grid-template-columns: 1fr; gap: 24px; }
-    .section-aside { display: none; }
+    .container { padding: 0 20px; }
+    header.masthead { padding: 36px 0 0; }
+    .masthead-top { margin-bottom: 24px; }
+    .tab-btn { font-size: 15px; padding: 14px 16px; flex: 1 1 auto; text-align: center; }
+    .tab-panel { padding: 40px 0 60px; }
+    .panel-head { grid-template-columns: 1fr; gap: 10px; margin-bottom: 28px; }
+    .panel-body { grid-template-columns: 1fr; gap: 20px; }
+    .panel-aside { display: none; }
+    .about-hero { grid-template-columns: 1fr; gap: 28px; }
+    .about-hero .photo-frame { max-width: 320px; order: -1; }
     .timeline-row { grid-template-columns: 1fr; gap: 4px; }
-    .theme { grid-template-columns: 1fr; gap: 8px; padding: 20px; }
-    nav.top ul { gap: 16px; }
-    nav.top ul a { font-size: 12px; }
+    .teaching-list li { grid-template-columns: 1fr; gap: 4px; }
+    .teaching-list .role-tag { text-align: left; }
+    .ps-block { gap: 24px; }
+    .ps-photo { width: 110px; height: 138px; }
+    .ps-text { font-size: 16px; }
   }
-
-  /* Reveal animation */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .hero h1, .hero .lede, .hero .meta, .hero .quick-links, .hero-photo {
-    animation: fadeUp 0.9s ease-out backwards;
-  }
-  .hero .lede { animation-delay: 0.15s; }
-  .hero .meta { animation-delay: 0.3s; }
-  .hero .quick-links { animation-delay: 0.4s; }
-  .hero-photo { animation-delay: 0.2s; }
 </style>
 </head>
 <body>
 
-<nav class="top">
+<header class="masthead">
   <div class="container">
-    <span class="name">Yicheng Mao</span>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#research">Trajectory</a></li>
-      <li><a href="#publications">Publications</a></li>
-    </ul>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-text">
+    <div class="masthead-top">
+      <div>
         <h1>Yicheng <span class="accent">Mao</span></h1>
-        <p class="lede">I am a PIMS Postdoctoral Fellow at the University of Calgary, working with Prof. Rob Deardon. My research develops computational statistical methods for infectious disease and public health systems, combining Bayesian simulation-based inference, behavioural change modelling, and optimal experimental design.</p>
-        <div class="meta">
+        <div class="tagline">
+          <span>PIMS Postdoctoral Fellow</span>
           <span>University of Calgary</span>
-          <span>Calgary, Canada</span>
-        </div>
-        <div class="quick-links">
-          <a href="mailto:yicheng.mao1@ucalgary.ca">Email</a>
-          <a href="CV.pdf" target="_blank" rel="noopener">CV</a>
-          <a href="https://scholar.google.com/citations?user=7oh32xoAAAAJ&hl" target="_blank" rel="noopener">Scholar</a>
-          <a href="https://github.com/YichengMao98" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
-      <div class="hero-photo">
-        <div class="photo-frame">
-          <img src="photo.png" alt="Yicheng Mao" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
-          <span class="photo-placeholder-text">photo.jpg</span>
-        </div>
+      <div class="quick-links">
+        <a href="mailto:yicheng.mao1@ucalgary.ca" aria-label="Email" title="Email">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        </a>
+        <a href="CV.pdf" target="_blank" rel="noopener" class="ql-text" aria-label="Curriculum Vitae (PDF)" title="CV">CV</a>
+        <a href="https://scholar.google.com/citations?user=7oh32xoAAAAJ&hl" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.91V17h2V9zM5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+        </a>
+        <a href="https://github.com/YichengMao98" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 1.5a10.5 10.5 0 0 0-3.32 20.46c.52.1.71-.23.71-.5v-1.77c-2.92.64-3.54-1.4-3.54-1.4-.48-1.22-1.17-1.54-1.17-1.54-.95-.65.08-.64.08-.64 1.05.07 1.6 1.08 1.6 1.08.94 1.6 2.46 1.14 3.06.87.1-.68.37-1.14.66-1.4-2.33-.27-4.78-1.17-4.78-5.18 0-1.15.41-2.08 1.08-2.82-.11-.27-.47-1.34.1-2.78 0 0 .88-.28 2.88 1.07a10 10 0 0 1 5.24 0c2-1.35 2.88-1.07 2.88-1.07.57 1.44.21 2.51.1 2.78.67.74 1.07 1.67 1.07 2.82 0 4.02-2.45 4.9-4.79 5.16.38.33.71.97.71 1.96v2.9c0 .28.19.61.72.5A10.5 10.5 0 0 0 12 1.5"/></svg>
+        </a>
       </div>
     </div>
   </div>
+
+  <nav class="tab-nav">
+    <div class="container" style="display:flex; padding:0; max-width:920px;">
+      <button class="tab-btn active" data-tab="about">About</button>
+      <button class="tab-btn" data-tab="trajectory">Trajectory</button>
+      <button class="tab-btn" data-tab="publications">Publications</button>
+      <button class="tab-btn" data-tab="teaching">Teaching</button>
+    </div>
+  </nav>
 </header>
 
-<section id="about">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-num">§ 01 / About</span>
-      <h2 class="section-title">What I work on.</h2>
+<main class="container">
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="tab-panel active" id="about">
+    <div class="panel-head">
+      <span class="panel-kicker">About</span>
+      <h2 class="panel-title">What I work on.</h2>
     </div>
-    <div class="section-body">
-      <aside class="section-aside">
-        Computational<br>
-        statistics for<br>
-        epidemic systems
-      </aside>
-      <div class="section-content">
+
+    <div class="about-hero">
+      <div class="about-intro">
         <p>My research develops computational statistical methods for infectious disease and public health systems, where transmission dynamics, human behaviour, and surveillance processes interact. I focus on how statistical methods can support reliable inference, prediction, and data collection when the underlying system is nonlinear, partially observed, behaviourally adaptive, and computationally difficult to evaluate.</p>
-        <p>My current work has four connected themes.</p>
-
-        <div class="research-themes">
-          <div class="theme">
-            <span class="theme-num">01</span>
-            <div class="theme-body">
-              <h4>Bayesian epidemic modelling</h4>
-              <p class="theme-blurb">Inferring how diseases spread when behaviour adapts and data are partial.</p>
-              <div class="theme-keywords">
-                <span>Bayesian inference</span>
-                <span>Simulation-based inference</span>
-                <span>Epidemic models</span>
-                <span>Behavioural change</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="theme">
-            <span class="theme-num">02</span>
-            <div class="theme-body">
-              <h4>Disease forecasting and AI-assisted modelling</h4>
-              <p class="theme-blurb">Using machine learning and mechanistic models to forecast outbreaks and capture human behaviour during them.</p>
-              <div class="theme-keywords">
-                <span>Disease forecasting</span>
-                <span>Machine learning</span>
-                <span>Deep learning</span>
-                <span>Agent-based models</span>
-                <span>Large language models</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="theme">
-            <span class="theme-num">03</span>
-            <div class="theme-body">
-              <h4>Bayesian optimal experimental design</h4>
-              <p class="theme-blurb">Designing experiments that learn the most from limited data when models are nonlinear and prior knowledge is uncertain.</p>
-              <div class="theme-keywords">
-                <span>Optimal design</span>
-                <span>Discrete choice experiments</span>
-                <span>Mixture experiment</span>
-                <span>Partial profile design</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="theme">
-            <span class="theme-num">04</span>
-            <div class="theme-body">
-              <h4>Statistics for social and behavioural sciences</h4>
-              <p class="theme-blurb">Applying choice experiments across applied domains to study how people decide between alternative tools, services, and policies.</p>
-              <div class="theme-keywords">
-                <span>Human-computer interaction</span>
-                <span>Educational technology</span>
-                <span>Organizational behaviour</span>
-                <span>Consumer behaviour</span>
-                <span>Health decision-making</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ps-block">
-          <div class="ps-photo">
-            <img src="benben.jpg" alt="Benben the dog">
-          </div>
-          <div class="ps-text">
-            <span class="ps-label">P.S.</span>
-            The fluffy one is Benben, my dog and occasional debugging companion.
-          </div>
-        </div>
-
+        <p>My current work spans four connected themes.</p>
+      </div>
+      <div class="photo-frame">
+        <img src="photo.png" alt="Yicheng Mao">
       </div>
     </div>
-  </div>
-</section>
 
-<section id="research">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-num">§ 02 / Trajectory</span>
-      <h2 class="section-title">Where I have been.</h2>
+    <div class="research-themes">
+      <div class="theme">
+        <h4>Bayesian epidemic modelling</h4>
+        <p class="theme-blurb">Inferring how diseases spread when behaviour adapts and data are partial.</p>
+        <div class="theme-keywords">
+          <span>Bayesian inference</span>
+          <span>Simulation-based inference</span>
+          <span>Epidemic models</span>
+          <span>Behavioural change</span>
+        </div>
+      </div>
+      <div class="theme">
+        <h4>Disease forecasting and AI-assisted modelling</h4>
+        <p class="theme-blurb">Using machine learning and mechanistic models to forecast outbreaks and capture human behaviour during them.</p>
+        <div class="theme-keywords">
+          <span>Disease forecasting</span>
+          <span>Machine learning</span>
+          <span>Deep learning</span>
+          <span>Agent-based models</span>
+          <span>Large language models</span>
+        </div>
+      </div>
+      <div class="theme">
+        <h4>Bayesian optimal experimental design</h4>
+        <p class="theme-blurb">Designing experiments that learn the most from limited data when models are nonlinear and prior knowledge is uncertain.</p>
+        <div class="theme-keywords">
+          <span>Optimal design</span>
+          <span>Discrete choice experiments</span>
+          <span>Mixture experiment</span>
+          <span>Partial profile design</span>
+        </div>
+      </div>
+      <div class="theme">
+        <h4>Statistics for social and behavioural sciences</h4>
+        <p class="theme-blurb">Applying choice experiments across applied domains to study how people decide between alternative tools, services, and policies.</p>
+        <div class="theme-keywords">
+          <span>Human-computer interaction</span>
+          <span>Educational technology</span>
+          <span>Organizational behaviour</span>
+          <span>Consumer behaviour</span>
+          <span>Health decision-making</span>
+        </div>
+      </div>
     </div>
-    <div class="section-body">
-      <aside class="section-aside">
-        Trajectory<br>
-        2017 → present
+
+    <div class="ps-block">
+      <div class="ps-photo">
+        <img src="benben.jpg" alt="Benben the dog">
+      </div>
+      <div class="ps-text">
+        <span class="ps-label">P.S.</span>
+        The fluffy one is Benben, my dog and occasional debugging companion.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TRAJECTORY ===================== -->
+  <section class="tab-panel" id="trajectory">
+    <div class="panel-head">
+      <span class="panel-kicker">Trajectory</span>
+      <h2 class="panel-title">Where I have been.</h2>
+    </div>
+    <div class="panel-body">
+      <aside class="panel-aside">
+        Positions<br>
+        &amp; education<br>
+        2017 → now
       </aside>
-      <div class="section-content">
+      <div class="panel-content">
         <div class="timeline">
           <div class="timeline-row">
             <div class="timeline-date">2026 → now</div>
@@ -809,21 +742,20 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="publications">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-num">§ 03 / Publications</span>
-      <h2 class="section-title">Selected work.</h2>
+  <!-- ===================== PUBLICATIONS ===================== -->
+  <section class="tab-panel" id="publications">
+    <div class="panel-head">
+      <span class="panel-kicker">Publications</span>
+      <h2 class="panel-title">Selected work.</h2>
     </div>
-    <div class="section-body">
-      <aside class="section-aside">
+    <div class="panel-body">
+      <aside class="panel-aside">
         Papers<br>
         Published &middot; Submitted
       </aside>
-      <div class="section-content">
+      <div class="panel-content">
 
         <div class="pub-group">
           <h3>Published</h3>
@@ -917,8 +849,90 @@
 
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- ===================== TEACHING ===================== -->
+  <section class="tab-panel" id="teaching">
+    <div class="panel-head">
+      <span class="panel-kicker">Teaching</span>
+      <h2 class="panel-title">Learning by playing.</h2>
+    </div>
+    <div class="panel-body">
+      <aside class="panel-aside">
+        Courses<br>
+        Games<br>
+        Supervision
+      </aside>
+      <div class="panel-content">
+
+        <div class="teaching-intro">
+          <p>I like teaching statistics through small, playable games. Abstract ideas like sampling variability or convergence become intuitive once you can watch them unfold and poke at them yourself, so I build little interactive demos that let students experiment with a concept before we formalize it.</p>
+          <p>Here are some I have made. More on the way.</p>
+        </div>
+
+        <div class="games-grid">
+          <a class="game-card" href="https://www.astrocade.com/games/law-of-large-numbers/01KVVCN08H0XGRB7MKPDC2RQ1Y" target="_blank" rel="noopener">
+            <span class="game-tag">Interactive demo</span>
+            <div class="game-title">Law of Large Numbers</div>
+            <div class="game-desc">More data, closer to the truth.</div>
+            <span class="game-play">Play on Astrocade</span>
+          </a>
+        </div>
+
+        <div class="teaching-block">
+          <h4>Courses</h4>
+          <ul class="teaching-list">
+            <li><span>R Functions and Libraries (EBS1009), Maastricht University</span><span class="role-tag">Instructor</span></li>
+            <li><span>Writing a Master's Thesis Proposal (EBS4047), Maastricht University</span><span class="role-tag">Instructor</span></li>
+            <li><span>Research Methodology, Beijing Normal University</span><span class="role-tag">Guest Instructor</span></li>
+          </ul>
+        </div>
+
+        <div class="teaching-block">
+          <h4>Workshops</h4>
+          <ul class="teaching-list">
+            <li><span>Introduction to Discrete Choice Experiments, Maastricht University</span><span class="role-tag">Instructor</span></li>
+          </ul>
+        </div>
+
+        <div class="teaching-block">
+          <h4>Master thesis supervision</h4>
+          <p style="margin-bottom:12px; color:var(--ink-soft); font-size:14px;">Supervised at Maastricht University:</p>
+          <div class="name-cluster">
+            <span>Aida Jurinovics</span>
+            <span>Dimitris Kotsanitis</span>
+            <span>Yimo Zhang</span>
+            <span>Jari Meenhuis</span>
+            <span>Sujing Chen</span>
+            <span>Hassan Haroon Ur Rashid</span>
+            <span>Magda Arvelos da Costa</span>
+            <span>Elizabeth Platzer</span>
+          </div>
+          <p style="margin:16px 0 12px; color:var(--ink-soft); font-size:14px;">Thesis committee member for:</p>
+          <div class="name-cluster">
+            <span>Swen Claessens</span>
+            <span>Leon Reiss</span>
+            <span>Levi Kroezen</span>
+            <span>Rafke Vaessen</span>
+            <span>Sytse Roelofs</span>
+            <span>Stef Demandt</span>
+            <span>Wouter van Santbrink</span>
+            <span>Léon Scheunert</span>
+          </div>
+        </div>
+
+        <div class="teaching-block">
+          <h4>Qualification</h4>
+          <ul class="teaching-list">
+            <li><span>Certificate in Problem-based Learning (PBL) and Tutor Training</span><span class="role-tag">Maastricht, 2024</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <footer>
   <div class="container">
@@ -926,6 +940,27 @@
     <div>© 2026 Yicheng Mao &middot; Built with care &middot; Last updated June 2026</div>
   </div>
 </footer>
+
+<script>
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  function activate(name) {
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+    panels.forEach(p => p.classList.toggle('active', p.id === name));
+    if (history.replaceState) history.replaceState(null, '', '#' + name);
+    window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.tab)));
+
+  // Open the tab named in the URL hash, if valid
+  const initial = (location.hash || '').replace('#', '');
+  if (initial && document.getElementById(initial) &&
+      document.getElementById(initial).classList.contains('tab-panel')) {
+    activate(initial);
+  }
+</script>
 
 </body>
 </html>

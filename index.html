@@ -518,12 +518,6 @@
     text-transform: uppercase; letter-spacing: 0.08em;
     text-align: right;
   }
-  .name-cluster {
-    display: flex; flex-wrap: wrap; gap: 6px 14px;
-    font-size: 15px; color: var(--ink-soft);
-  }
-  .name-cluster span::after { content: "·"; margin-left: 14px; color: var(--ink-faded); }
-  .name-cluster span:last-child::after { content: ""; }
 
   /* ===== Footer ===== */
   footer {
@@ -897,28 +891,10 @@
 
         <div class="teaching-block">
           <h4>Master thesis supervision</h4>
-          <p style="margin-bottom:12px; color:var(--ink-soft); font-size:14px;">Supervised at Maastricht University:</p>
-          <div class="name-cluster">
-            <span>Aida Jurinovics</span>
-            <span>Dimitris Kotsanitis</span>
-            <span>Yimo Zhang</span>
-            <span>Jari Meenhuis</span>
-            <span>Sujing Chen</span>
-            <span>Hassan Haroon Ur Rashid</span>
-            <span>Magda Arvelos da Costa</span>
-            <span>Elizabeth Platzer</span>
-          </div>
-          <p style="margin:16px 0 12px; color:var(--ink-soft); font-size:14px;">Thesis committee member for:</p>
-          <div class="name-cluster">
-            <span>Swen Claessens</span>
-            <span>Leon Reiss</span>
-            <span>Levi Kroezen</span>
-            <span>Rafke Vaessen</span>
-            <span>Sytse Roelofs</span>
-            <span>Stef Demandt</span>
-            <span>Wouter van Santbrink</span>
-            <span>Léon Scheunert</span>
-          </div>
+          <ul class="teaching-list">
+            <li><span>Supervised 8 master's theses</span><span class="role-tag">Maastricht University</span></li>
+            <li><span>Thesis committee member for 8 students</span><span class="role-tag">Maastricht University</span></li>
+          </ul>
         </div>
 
         <div class="teaching-block">
